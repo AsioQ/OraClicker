@@ -5,7 +5,7 @@ function randomInteger(min, max) {
 
 let ora = 0;
 let oraPlus = 1;
-let oraVid = `Ора`
+let oraVid = `Ора`;
 let stand = `Star Platinum`;
 
 var oraAudio1 = new Audio('ora.wav');
@@ -30,6 +30,7 @@ let img1 = document.querySelector(`#img1`);
 let endGame = document.querySelector(`#endGame`);
 let endP = document.querySelector(`#endP`);
 let stand1 = document.querySelector(`#stand`);
+let footer1 = document.querySelector(`#footer3`);
 
 endGame.addEventListener(`click`, function(){
     if (ora >= 1200){
@@ -37,6 +38,50 @@ endGame.addEventListener(`click`, function(){
     }
     else{
         endP.innerHTML = `Недостаточно средств, лошок!`;
+    }
+})
+
+document.addEventListener(`keydown`, function(){
+    ora += oraPlus;
+    oraNumber.innerHTML = ora + ` ` + oraVid;
+    if (oraVid == "Ора"){
+        oraAudio1.play();
+    }
+    else if(oraVid == "Муда"){
+        let random = randomInteger(1, 3);
+        if (random == 1){
+            oraAudio21.play();
+        }
+        else if (random == 2){
+            oraAudio22.play();
+        }
+        else if (random == 3){
+            oraAudio23.play();
+        }
+    }
+    else if(oraVid == "Ах"){
+        let random = randomInteger(1, 2);
+        if (random == 1){
+            oraAudio31.play();
+        }
+        else if (random == 2){
+            oraAudio32.play();
+        }
+    }
+    else if (oraVid == "Я лох"){
+        let random = randomInteger(1, 4);
+        if (random == 1){
+            oraAudio41.play();
+        }
+        else if (random == 2){
+            oraAudio42.play();
+        }
+        else if (random == 3){
+            oraAudio43.play();
+        }
+        else if (random == 4){
+            oraAudio44.play();
+        }
     }
 })
 
@@ -93,12 +138,12 @@ buyButton1.addEventListener(`click`, function(){
         img1.src = `world.jpg`;
         oraButton.innerHTML = `Муда`;
         ora -= 200;
+        stand1.innerHTML = `Твой стенд: ` + stand;
+        oraAudio5.play();
     }
     else{
         result.innerHTML = `Пошел нахуй`;
     }
-    stand1.innerHTML = `Твой стенд: ` + stand;
-    oraAudio5.play();
 })
 
 buyButton2.addEventListener(`click`, function(){
@@ -110,16 +155,17 @@ buyButton2.addEventListener(`click`, function(){
         img1.src = `silver.jpeg`;
         oraButton.innerHTML = `Ах`;
         ora -= 500;
+        stand1.innerHTML = `Твой стенд: ` + stand;
+        oraAudio5.play();
     }
     else{
         result.innerHTML = `Пошел нахуй`;
     }
-    stand1.innerHTML = `Твой стенд: ` + stand;
-    oraAudio5.play();
 })
 
 buyButton3.addEventListener(`click`, function(){
     if (ora >= 1000 && oraVid != `Я лох`){
+        footer1.classList.toggle(`footer2`);
         oraPlus = 5;
         oraVid = `Я лох`;
         stand = `Стенд Арекусей`;
@@ -127,11 +173,10 @@ buyButton3.addEventListener(`click`, function(){
         img1.src = `arekusey.gif`;
         oraButton.innerHTML = `Я лох`;
         ora -= 1000;
+        stand1.innerHTML = `Твой стенд: ` + stand;
+        oraAudio5.play();
     }
     else{
         result.innerHTML = `Пошел нахуй`;
     }
-    stand1.innerHTML = `Твой стенд: ` + stand;
-    oraAudio5.play();
-    document.querySelector(`.footer`).style.display=`flex`;
 })
