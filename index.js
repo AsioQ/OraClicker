@@ -29,10 +29,11 @@ let result = document.querySelector(`#result`);
 let img1 = document.querySelector(`#img1`);
 let endGame = document.querySelector(`#endGame`);
 let endP = document.querySelector(`#endP`);
+let stand1 = document.querySelector(`#stand`);
 
 endGame.addEventListener(`click`, function(){
     if (ora >= 1200){
-        endP.innerHTML = `Поздравляю, ты завершил игру!!! Вот тебе подарок: <a href="https://yandex.ru/video/preview/16554280298984749718">Ссылка</a>`
+        endP.innerHTML = `Поздравляю, ты завершил первый уровень!!! Вот тебе подарок: <a href="https://yandex.ru/video/preview/16554280298984749718">Ссылка</a>`;
     }
     else{
         endP.innerHTML = `Недостаточно средств, лошок!`;
@@ -96,6 +97,7 @@ buyButton1.addEventListener(`click`, function(){
     else{
         result.innerHTML = `Пошел нахуй`;
     }
+    stand1.innerHTML = `Твой стенд: ` + stand;
     oraAudio5.play();
 })
 
@@ -112,6 +114,7 @@ buyButton2.addEventListener(`click`, function(){
     else{
         result.innerHTML = `Пошел нахуй`;
     }
+    stand1.innerHTML = `Твой стенд: ` + stand;
     oraAudio5.play();
 })
 
@@ -123,11 +126,12 @@ buyButton3.addEventListener(`click`, function(){
         result.innerHTML = ``;
         img1.src = `arekusey.gif`;
         oraButton.innerHTML = `Я лох`;
-        ora -= 200;
+        ora -= 1000;
     }
     else{
         result.innerHTML = `Пошел нахуй`;
     }
+    stand1.innerHTML = `Твой стенд: ` + stand;
     oraAudio5.play();
-    document.querySelector(`#footer`).style.display=`flex`;
+    document.querySelector(`.footer`).style.display=`flex`;
 })

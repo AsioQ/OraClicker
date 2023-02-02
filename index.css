@@ -1,10 +1,26 @@
-.btn1{
+@media (min-width: 994px) {
+    .three{
+        border-left: 1px Solid rgb(59, 43, 153);
+    }
+}
+
+.btn2{
     display: flex;
     justify-content: center;
 }
 
 .btn1{
     font-size:28px;
+    padding-left: 45%;
+    padding-right: 45%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.btn3{
+    font-size:22px;
+    padding-left: 45%;
+    padding-right: 45%;
 }
 
 h1{
